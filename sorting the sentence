@@ -1,0 +1,36 @@
+class Solution:
+        
+    def stringToList(self,string:str):
+        value = 0
+        name = ''
+        ListString = []
+        for i in range(len(string)):
+            if string[i] != ' ':
+                name += string[i]
+                value +=1
+            elif(string[i]==' '):
+                ListString.append(name)
+                name = ''
+            
+        ListString.append(name)
+        return ListString
+
+    def sortSentence(self,string):
+
+            collector = []
+            
+            stringList = self.stringToList(string)
+            newCollector = ['']*len(stringList)
+            value = ''
+            for i in stringList:
+                collector.append(int(i[len(i)-1])) 
+            
+
+            for i in range(len(stringList)):
+                newCollector[collector[i]-1] =stringList[i][:-1]
+
+            value = newCollector[0]
+
+            for j in range(1,len(newCollector)):
+                value += ' ' +newCollector[j]
+            return value
