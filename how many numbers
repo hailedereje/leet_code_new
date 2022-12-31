@@ -1,0 +1,15 @@
+def smallerNumbersThanCurrent(nums: list[int]):
+        count = 0
+        countList = []
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if i != j and nums[i] > nums[j]:
+                    count+=1
+                else:
+                    continue
+            countList.append(count)
+            count = 0
+        print(countList)
+        return countList
+nums = [8,1,2,2,3]
+smallerNumbersThanCurrent(nums)
