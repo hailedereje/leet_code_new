@@ -1,0 +1,29 @@
+class Solution:
+   
+    def select(self,arr, i):
+        return arr[i]
+
+    def selectionSort(self,arr,n):
+        
+        val = 0
+        
+        for i in range(len(arr)-1):
+            initial = self.select(arr,i)
+            for j in range(i+1,len(arr),1):
+                if initial > arr[j]:
+                    val = j
+                    initial = arr[j]
+                else:
+                    continue
+                arr[i],arr[val] = initial,arr[i]
+                
+        return arr
+    def targetIndices(self, nums: List[int], target: int):
+        nums = self.selectionSort(nums,len(nums))
+        count = 0
+        content = []
+        for i in range(len(nums)):
+            if target == nums[i]:
+                content.append(i)
+        print(content)
+        return content
