@@ -1,0 +1,12 @@
+def theaterSquer(n,m,a):
+    count = 0
+    if n> a and m>a:
+        width = n//a + 1
+        count =  ((m-a)//a + 1)*width + width
+    elif n <= a or m <=a:
+        maxx = max(n,m)
+        count = maxx//a + 1
+
+    return count
+n,m,a = map(int,input().split())
+print(theaterSquer(n,m,a))
