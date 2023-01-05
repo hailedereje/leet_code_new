@@ -1,0 +1,25 @@
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        collector = []
+        visited = 0
+        for i in range(n):
+            if(nums.count(nums[i]) > 1):
+                collector.append(i)
+        for i in collector:
+            for j in range(i+1,n):
+                if (nums[i] == nums[j]):
+                    visited+=1
+        return visited
+
+                
+        
+            
+
+        return visited
+
+                        
+
+                
+                
