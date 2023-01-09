@@ -1,16 +1,23 @@
 class Solution(object):
-  def isValid(self,s):
-     if len(s) % 2 != 0:
-            return False
-     dict = {'(' : ')', '[' : ']', '{' : '}'}
-     stack = []
-     for i in s:
-            if i in dict.keys():
+  def isValid(self ,s: str) -> bool:
+    dic = {
+        '{' : '}',
+        '[' : ']',
+        '(' : ')'
+    }
+
+    sList = list(s)
+    stack = []
+    if sList[0] == '}' or sList[0] == ')' or sList[0] == ']' or len(sList)%2 != 0:
+        return False
+    else:
+        for i in sList:
+            if i in dic.keys():
                 stack.append(i)
             else:
                 if stack == []:
                     return False
                 a = stack.pop()
-                if i!= dict[a]:
+                if i != dic[a]:
                     return False
-     return stack == []
+    return stack == []
