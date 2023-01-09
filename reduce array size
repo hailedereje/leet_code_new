@@ -1,0 +1,13 @@
+class Solution:
+    def minSetSize(self, arr: List[int]) -> int:
+        ans=0      
+        count = Counter(arr)
+        l=(len(arr)-1)//2                
+        occ=0        
+        for x in sorted(count.values(),reverse=True):            
+            if occ>l:
+                return ans
+            else:
+                occ+=x
+                ans+=1
+        return ans
