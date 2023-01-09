@@ -1,0 +1,12 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        newNum = list(Counter(nums).items())
+        newNum.sort(key= lambda i : -i[1])
+        i = 0
+        lis = []
+        while(i < k):
+            lis.append(newNum[i][0])
+            i+=1
+
+        print(count)
+        return lis
