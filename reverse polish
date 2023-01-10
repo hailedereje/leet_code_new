@@ -1,0 +1,27 @@
+def evalRPN(tokens: list[str]) -> int:
+
+    stack = []
+    def calculator(result,value,sign):
+        if sign == "+":
+            sum = (result + value)
+            return sum
+        elif sign == "-":
+            diff = (result - value)
+            return diff
+        elif sign == "*":
+            mul = (result * value)
+            return mul
+        elif sign == "/":
+            div = (result / value)
+            return div
+
+    
+    for i in tokens:
+        if i not in ["+","-","*","/"]:
+            stack.append(int(i)) 
+        else:
+            val = stack.pop()
+            res = stack.pop()
+            stack.append(int(calculator(res,val,i)))
+                  
+    return stack.pop()
