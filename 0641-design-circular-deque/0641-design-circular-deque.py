@@ -22,7 +22,7 @@ class MyCircularDeque:
             return True
 
     def deleteFront(self) -> bool:
-        if len(self.data)==0:
+        if self.isEmpty():
             return False
         else:
             self.data.pop(0)
