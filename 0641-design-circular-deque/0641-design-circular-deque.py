@@ -1,99 +1,67 @@
 class MyCircularDeque:
 
-    def __init__(self, k):
-        """
-        Initialize your data structure here. Set the size of the deque to be k.
-        :type k: int
-        """
-        self._size = 0
-        self._front, self._rear = 0, 0
-        self._capacity = k
-        self._data = [-1] * k
+    def __init__(self, k: int):
+        # self.sz = 0
+        self.data = []
+        self.K = k
+        
 
-    def insertFront(self, value):
-        """
-        Adds an item at the front of Deque. Return true if the operation is successful.
-        :type value: int
-        :rtype: bool
-        """
-        if self.isFull():
+    def insertFront(self, value: int) -> bool:
+        if len(self.data)==self.K:
             return False
-        if self.isEmpty():
-            self._data[self._front] = value
         else:
-            self._front = (self._front - 1) % self._capacity
-            self._data[self._front] = value
-        self._size += 1
-        return True
+            self.data[0:0] = [value]
+            return True
+            
 
-    def insertLast(self, value):
-        """
-        Adds an item at the rear of Deque. Return true if the operation is successful.
-        :type value: int
-        :rtype: bool
-        """
-        if self.isFull():
+    def insertLast(self, value: int) -> bool:
+        if len(self.data)==self.K:
             return False
-        if self.isEmpty():
-            self._data[self._rear] = value
         else:
-            self._rear = (self._rear + 1) % self._capacity
-            self._data[self._rear] = value
-        self._size += 1
-        return True
+            self.data.append(value)
+            return True
 
-    def deleteFront(self):
-        """
-        Deletes an item from the front of Deque. Return true if the operation is successful.
-        :rtype: bool
-        """
-        if self.isEmpty():
+    def deleteFront(self) -> bool:
+        if len(self.data)==0:
             return False
-        self._data[self._front] = -1
-        self._front = (self._front + 1) % self._capacity
-        self._size -= 1
-        if self.isEmpty():
-            self._rear = self._front
-        return True
+        else:
+            self.data.pop(0)
+            return True
 
-    def deleteLast(self):
-        """
-        Deletes an item from the rear of Deque. Return true if the operation is successful.
-        :rtype: bool
-        """
-        if self.isEmpty():
+    def deleteLast(self) -> bool:
+        if len(self.data)==0:
             return False
-        self._data[self._rear] = -1
-        self._rear = (self._rear - 1) % self._capacity
-        self._size -= 1
-        if self.isEmpty():
-            self._front = self._rear
-        return True
+        else:
+            self.data.pop()
+            return True
 
-    def getFront(self):
-        """
-        Get the front item from the deque.
-        :rtype: int
-        """
-        return self._data[self._front]
+    def getFront(self) -> int:
+        if len(self.data)==0:
+            return -1
+        else:
+            return self.data[0]
 
-    def getRear(self):
-        """
-        Get the last item from the deque.
-        :rtype: int
-        """
-        return self._data[self._rear]
 
-    def isEmpty(self):
-        """
-        Checks whether the circular deque is empty or not.
-        :rtype: bool
-        """
-        return self._size == 0
+    def getRear(self) -> int:
+        if len(self.data)==0:
+            return -1
+        else:
+            return self.data[-1]
 
-    def isFull(self):
-        """
-        Checks whether the circular deque is full or not.
-        :rtype: bool
-        """
-        return self._size == self._capacity
+    def isEmpty(self) -> bool:
+        return len(self.data)==0
+
+    def isFull(self) -> bool:
+        return len(self.data)>=self.K
+
+
+# Your MyCircularDeque object will be instantiated and called as such:
+# obj = MyCircularDeque(k)
+# param_1 = obj.insertFront(value)
+# param_2 = obj.insertLast(value)
+# param_3 = obj.deleteFront()
+# param_4 = obj.deleteLast()
+# param_5 = obj.getFront()
+# param_6 = obj.getRear()
+# param_7 = obj.isEmpty()
+# param_8 = obj.isFull()
