@@ -52,7 +52,7 @@ class MyCircularDeque:
         return len(self.data)==0
 
     def isFull(self) -> bool:
-        return len(self.data)>=self.K
+        return len(self.data)==self.K
 
 
 # Your MyCircularDeque object will be instantiated and called as such:
