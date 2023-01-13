@@ -15,7 +15,7 @@ class MyCircularDeque:
             
 
     def insertLast(self, value: int) -> bool:
-        if len(self.data)==self.K:
+        if self.isFull():
             return False
         else:
             self.data.append(value)
