@@ -29,21 +29,21 @@ class MyCircularDeque:
             return True
 
     def deleteLast(self) -> bool:
-        if len(self.data)==0:
+        if self.isEmpty():
             return False
         else:
             self.data.pop()
             return True
 
     def getFront(self) -> int:
-        if len(self.data)==0:
+        if self.isEmpty():
             return -1
         else:
             return self.data[0]
 
 
     def getRear(self) -> int:
-        if len(self.data)==0:
+        if self.isEmpty():
             return -1
         else:
             return self.data[-1]
