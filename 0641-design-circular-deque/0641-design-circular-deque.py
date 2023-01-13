@@ -7,7 +7,7 @@ class MyCircularDeque:
         
 
     def insertFront(self, value: int) -> bool:
-        if len(self.data)==self.K:
+        if self.isFull():
             return False
         else:
             self.data[0:0] = [value]
