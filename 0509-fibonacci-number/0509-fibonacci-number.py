@@ -1,9 +1,9 @@
 class Solution:
+    def __init__(self):
+        self.stack = [0,1]
+        self.count = 0
     def fib(self, n: int) -> int: 
-        def feb(n):
-            if n > 1:
-                n = feb(n-1) + feb(n-2)
-            return n
-        
-        return feb(n)
+        if n>1:
+            n = self.fib(n-1)+self.fib(n-2)
+        return n
             
