@@ -7,14 +7,14 @@ class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         listed = []
         x = head
-        v = 0
+        v = c = 0
         while x.next != None:
             listed.append(head.val)
             x = x.next
-        val = len(listed)//2 if len(listed)%2 == 0 else len(listed)//2 +1
-        
+            c+=1
+        c = c//2 if c%2 == 0 else c//2 +1
         while(head.next):
-            if v == val:
+            if v == c:
                 return head
             head = head.next
             v+=1
