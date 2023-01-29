@@ -9,7 +9,6 @@ class Solution:
         x = head
         v = c = 0
         while x.next != None:
-            listed.append(head.val)
             x = x.next
             c+=1
         c = c//2 if c%2 == 0 else c//2 +1
