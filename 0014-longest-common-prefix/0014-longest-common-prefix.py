@@ -1,4 +1,5 @@
 class Solution:
+         
     def longestCommonPrefix(self, strs: List[str]) -> str:
         strsVal = strs[0]
         prefix = ""
@@ -13,6 +14,10 @@ class Solution:
             strsVal = prefix 
             prefix = ""
         return strsVal
+    
+        
+        
+            
 
                     
                            
